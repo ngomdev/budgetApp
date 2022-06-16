@@ -76,54 +76,43 @@ function loadData(){
 
 // fonction rendu pour le UI
 function rendu(){
-    let balance = listOfTransactions.reduce(
-        (total, value) => {
-    return value.type == "depense" ?
-    total - value.montant : total + value.montant},0);
+    if(listOfTransactions.length > 0){
+        
+        let balance = listOfTransactions.reduce(
+            (total, value) => {
+        return value.type == "depense" ?
+        total - value.montant : total + value.montant},0);
+        
+          displayList.innerHTML ="";
+          if(listOfTransactions.length == 0){
+            displayList.innerHTML+= "Aucune Transactions Effectuée";
+          }
     
-      displayList.innerHTML ="";
-      if(listOfTransactions.length == 0){
-        displayList.innerHTML+= "Aucune Transactions Effectuée";
-      }
+          else{
+            listOfTransactions.forEach((e,i)=>{
+            displayList.innerHTML+= `
+            
+            <li class="transaction ${e.type} ">
+                <p>${e.name}</p>
+                <div class="right_side">
+                    <p>${e.montant} ${symbole}</p>
+                    <button onclick="edit(${i})"><i class="fas fa-edit"></i></button>
+                    <button onclick="del(${i})"><i class="fas fa-trash-alt"></i></button>
+                </div>
+    
+            </li>`;
+    
+        })
+       
+    
+       }
+    
+            soldeEl.innerHTML = symbole;
+            balanceEl.innerHTML = balance;
+            saveData();  
 
-      else{
-        listOfTransactions.forEach((e,i)=>{
-        displayList.innerHTML+= `
-        
-        <li class="transaction ${e.type} ">
-            <p>${e.name}</p>
-            <div class="right_side">
-                <p>${e.montant} ${symbole}</p>
-                <button onclick="edit(${i})"><i class="fas fa-edit"></i></button>
-                <button onclick="del(${i})"><i class="fas fa-trash-alt"></i></button>
-            </div>
-
-        </li>`;
-        
-        
-        
-        
-        
-        
-        
-   
-
-        
-        
-        
-        
-
-    })
-   
-
-   }
-
-
-
-
-        soldeEl.innerHTML = symbole;
-        balanceEl.innerHTML = balance;
-        saveData();
+    }
+  
 }
 
 cancelBtn.addEventListener("click",() =>{
