@@ -1,4 +1,4 @@
-
+"use strict"
 
 // Acces par id
 
@@ -76,7 +76,7 @@ function loadData(){
 
 // fonction rendu pour le UI
 function rendu(){
-    if(listOfTransactions.length > 0){
+    
         
         let balance = listOfTransactions.reduce(
             (total, value) => {
@@ -113,7 +113,6 @@ function rendu(){
 
     }
   
-}
 
 cancelBtn.addEventListener("click",() =>{
  editIndex = -1;
@@ -140,10 +139,13 @@ saveButton.addEventListener("click",() =>{
         type : revenuEl.checked? "revenu":
         "depense"
     }
-if(editIndex == -1) listOfTransactions.push(transaction);
+if(editIndex == -1) {
+    listOfTransactions.push(transaction);
+}
 
-else
+else{
 listOfTransactions[editIndex] = transaction;
+}
 
 editIndex = -1;
 
