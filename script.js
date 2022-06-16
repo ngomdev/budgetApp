@@ -140,6 +140,7 @@ saveButton.addEventListener("click",() =>{
         "depense"
     }
     listOfTransactions.push(transaction);
+    rendu();
 if(editIndex == -1) {
     listOfTransactions.push(transaction);
 }
