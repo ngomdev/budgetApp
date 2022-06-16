@@ -139,6 +139,7 @@ saveButton.addEventListener("click",() =>{
         type : revenuEl.checked? "revenu":
         "depense"
     }
+    listOfTransactions.push(transaction);
 if(editIndex == -1) {
     listOfTransactions.push(transaction);
 }
