@@ -172,7 +172,7 @@ editIndex = -1;
 
 
 loadData();
-rendu();
+//rendu();
 
 
 
