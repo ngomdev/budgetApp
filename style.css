@@ -21,7 +21,7 @@ body{
     text-align: center;
 }
 .header{
-    font-size: 2rem;
+    font-size: 1.8rem;
    
   
 }
@@ -38,6 +38,7 @@ body{
     color: white;
     padding: 20px;
     min-width: 300px;
+ 
 }
 
 .text{
@@ -100,6 +101,7 @@ button{
 
 .btn:hover{
     background-color: #095744;
+    
 }
 #cancel{
   background-color: #e5415e;
